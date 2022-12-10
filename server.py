@@ -1,6 +1,4 @@
-import argparse
 import socket
-import sys
 from cardano import Cardano
 
 class VsockListener:
@@ -42,23 +40,8 @@ class VsockListener:
 
 def server_handler(args):
     server = VsockListener()
-    server.bind(args.port)
+    server.bind(5005)
     server.recv_data()
 
 def main():
-    parser = argparse.ArgumentParser(prog='vsock-sample')
-    parser.add_argument("--version", action="version",
-                        help="Prints version information.",
-                        version='%(prog)s 0.1.0')
-    subparsers = parser.add_subparsers(title="options")
-    server_parser = subparsers.add_parser("server", description="Server",
-                                          help="Listen on a given port.")
-    server_parser.add_argument("port", type=int, help="The local port to listen on.")
-    server_parser.set_defaults(func=server_handler)
-
-    if len(sys.argv) < 2:
-        parser.print_usage()
-        sys.exit(1)
-
-    args = parser.parse_args()
-    args.func(args)
+    server_handler()
