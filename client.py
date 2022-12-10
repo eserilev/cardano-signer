@@ -32,7 +32,7 @@ class VsockStream:
 
 def client_handler(args):
     client = VsockStream()
-    endpoint = (3, 5005)
+    endpoint = ("i-093d90abd3f89c8ec-enc184fca2de3734aa", 5005)
     client.connect(endpoint)
     unsigned_tx = ''
     client.send_data(unsigned_tx.encode())
