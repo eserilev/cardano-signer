@@ -40,4 +40,5 @@ def client_handler(args):
 
 
 def main():
+    print("YO")
     client_handler()
