@@ -22,6 +22,7 @@ class VsockListener:
                 try:
                     data = from_client.recv(1024).decode()
                 except socket.error:
+                    print('yo')
                     break
                 if not data:
                     break
