@@ -30,7 +30,7 @@ class VsockStream:
         """Close the client socket"""
         self.sock.close()
 
-def client_handler(args):
+def client_handler():
     client = VsockStream()
     endpoint = (16, 5005)
     client.connect(endpoint)
