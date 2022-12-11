@@ -2,7 +2,6 @@ import json
 from typing import List, Tuple
 from pycardano import (
     Network, 
-    BlockFrostChainContext, 
     Transaction, 
     TransactionWitnessSet, 
     TransactionBody, 
@@ -12,21 +11,6 @@ from pycardano import (
     VerificationKey,
     ScriptAll
 )
-from blockfrost.api import BlockFrostApi 
-
-blockfrost = {
-    "local": "preprodvF3EYVqrjX0aMsbBHkW7xE5evfZE9Jwm",
-    "develop": "preprodvF3EYVqrjX0aMsbBHkW7xE5evfZE9Jwm",
-    "staging": "preprodvF3EYVqrjX0aMsbBHkW7xE5evfZE9Jwm",
-    "prod": "mainnet50HDY7PpAR4XWqqGNCAXzOxGZPM2ZbQS",
-}
-
-blockfrost_api_url = {
-    "local": "https://cardano-preprod.blockfrost.io/api",
-    "develop": "https://cardano-preprod.blockfrost.io/api",
-    "staging": "https://cardano-preprod.blockfrost.io/api",
-    "prod": "https://cardano-mainnet.blockfrost.io/api",
-}
 
 local_private_keys = {
     "local_ssm_cardano_payment": {
@@ -53,14 +37,6 @@ class Cardano:
         self.overflow_limit = 9000000000000000000  # cardanos overflow limit is technically 9223372036854775807 but im rounding down so my head doesn't hurt ;)
         if self.env == "prod":  # TODO: replace literal string with const
             self.network = Network.MAINNET
-
-        BLOCK_FROST_PROJECT_ID = blockfrost.get(env)  # TODO: audit blockfrost
-        BLOCKFROST_API_URL = blockfrost_api_url.get(env)
-
-        self.api = BlockFrostApi(project_id=BLOCK_FROST_PROJECT_ID, base_url=BLOCKFROST_API_URL)
-        self.chain_context = BlockFrostChainContext(
-            project_id=BLOCK_FROST_PROJECT_ID, network=self.network, base_url=BLOCKFROST_API_URL
-        )
 
     # sign a transaciton using a list of signing keys
     def sign_transaction(
