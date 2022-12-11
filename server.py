@@ -1,5 +1,4 @@
 import socket
-# from cardano import Cardano
 
 class VsockListener:
     """Server"""
