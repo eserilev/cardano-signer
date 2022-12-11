@@ -8,6 +8,11 @@ COPY req.txt .
 RUN apk add --update --no-cache --virtual .tmp-build-deps \
     gcc libc-dev linux-headers postgresql-dev \
     && apk add libffi-dev
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
 RUN pip3 install --upgrade pip
 RUN pip3 install -r req.txt
-CMD ["/usr/local/bin/python3", "server.py", "5005"]
+CMD ["python", "server.py", "5005"]
