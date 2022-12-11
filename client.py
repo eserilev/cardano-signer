@@ -9,6 +9,7 @@ class VsockStream:
 
     def connect(self, endpoint):
         """Connect to the remote endpoint"""
+        print(endpoint)
         self.sock = socket.socket(socket.AF_VSOCK, socket.SOCK_STREAM)
         self.sock.settimeout(self.conn_tmo)
         self.sock.connect(endpoint)
