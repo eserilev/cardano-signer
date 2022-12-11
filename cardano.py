@@ -30,7 +30,7 @@ local_private_keys = {
 }
 
 class Cardano:
-    def __init__(self, env: str):
+    def __init__(self):
         pass
 
     # sign a transaciton using a list of signing keys
