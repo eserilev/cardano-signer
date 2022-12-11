@@ -42,3 +42,6 @@ def client_handler(args):
 def main():
     print("YO")
     client_handler()
+
+if __name__ == "__main__":
+    main()
