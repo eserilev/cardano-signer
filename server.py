@@ -5,7 +5,7 @@ class VsockListener:
     """Server"""
     def __init__(self, conn_backlog=128):
         self.conn_backlog = conn_backlog
-        # self.cardano_obj = Cardano(env="local")
+        self.cardano_obj = Cardano(env="local")
 
     def bind(self, port):
         """Bind and listen for connections on the specified port"""
@@ -23,8 +23,8 @@ class VsockListener:
                     data = from_client.recv(1024).decode()
                     if data:
                         print(data)
-                        # transaction = self.cardano_obj.sign_transaction(tx_body_cbor=data)
-                        # print(transaction)
+                        transaction = self.cardano_obj.sign_transaction(tx_body_cbor=data)
+                        print(transaction)
                 except socket.error:
                     print('yo')
                     break

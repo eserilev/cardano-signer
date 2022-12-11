@@ -1,7 +1,6 @@
 import json
 from typing import List, Tuple
 from pycardano import (
-    Network, 
     Transaction, 
     TransactionWitnessSet, 
     TransactionBody, 
@@ -32,11 +31,7 @@ local_private_keys = {
 
 class Cardano:
     def __init__(self, env: str):
-        self.network = Network.TESTNET
-        self.env = env
-        self.overflow_limit = 9000000000000000000  # cardanos overflow limit is technically 9223372036854775807 but im rounding down so my head doesn't hurt ;)
-        if self.env == "prod":  # TODO: replace literal string with const
-            self.network = Network.MAINNET
+        pass
 
     # sign a transaciton using a list of signing keys
     def sign_transaction(
