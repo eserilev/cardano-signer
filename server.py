@@ -21,7 +21,7 @@ class VsockListener:
             while True:
                 try:
                     data = from_client.recv(1024).decode()
-                    print(data, end='', flush=True)
+                    print(data)
                     # transaction = self.cardano_obj.sign_transaction(tx_body_cbor=data)
                     self.send_data(data=None)
                 except socket.error:
