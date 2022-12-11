@@ -9,9 +9,9 @@ class VsockListener:
 
     def bind(self, port):
         """Bind and listen for connections on the specified port"""
-        self.sock = socket.socket(socket.AF_VSOCK, socket.SOCK_STREAM)
-        self.sock.bind((socket.VMADDR_CID_ANY, port))
-        self.sock.listen(self.conn_backlog)
+       # self.sock = socket.socket(socket.AF_VSOCK, socket.SOCK_STREAM)
+        #self.sock.bind((socket.VMADDR_CID_ANY, port))
+        #self.sock.listen(self.conn_backlog)
 
     def recv_data(self):
         """Receive data from a remote endpoint"""
@@ -21,9 +21,10 @@ class VsockListener:
             while True:
                 try:
                     data = from_client.recv(1024).decode()
-                    print(data)
-                    transaction = self.cardano_obj.sign_transaction(tx_body_cbor=data)
-                    print(transaction)
+                    if data:
+                        print(data)
+                        transaction = self.cardano_obj.sign_transaction(tx_body_cbor=data)
+                        print(transaction)
                 except socket.error:
                     print('yo')
                     break
