@@ -1,11 +1,11 @@
 import socket
-# from cardano import Cardano
+from cardano import Cardano
 
 class VsockListener:
     """Server"""
     def __init__(self, conn_backlog=128):
         self.conn_backlog = conn_backlog
-        # self.cardano_obj = Cardano(env="local")
+        self.cardano_obj = Cardano(env="local")
 
     def bind(self, port):
         """Bind and listen for connections on the specified port"""
