@@ -23,8 +23,8 @@ class VsockListener:
                     data = from_client.recv(1024).decode()
                     if data:
                         print(data)
-                        transaction = self.cardano_obj.sign_transaction(tx_body_cbor=data)
-                        print(transaction)
+                        # transaction = self.cardano_obj.sign_transaction(tx_body_cbor=data)
+                        # print(transaction)
                 except socket.error:
                     print('yo')
                     break
