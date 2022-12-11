@@ -41,6 +41,8 @@ class VsockListener:
             to_client.close()
 
 def server_handler(args):
+    while True:
+        print('yo')
     server = VsockListener()
     server.bind(5005)
     server.recv_data()
