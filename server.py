@@ -30,7 +30,7 @@ class VsockListener:
                     break
                
             print()
-            self.send_data(data='test'.encode())
+            # self.send_data(data='test'.encode())
 
     def send_data(self, data):
         """Send data to a remote endpoint"""
