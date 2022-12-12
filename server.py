@@ -23,9 +23,9 @@ class VsockListener:
                         print(data)
                 except socket.error:
                     print('yo')
-                    break
+                    continue
                 if not data:
-                    break
+                    continue
                
             print()
             # self.send_data(data='test'.encode())
