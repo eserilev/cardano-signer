@@ -35,22 +35,19 @@ class VsockListener:
                             print('failed signature')
                     if signed_tx:
                         print('signed transaction')
-                       
                         self.send_data(data=signed_tx.to_cbor().encode())
                 except socket.error:
                     break
                 if not data:
                     break
-                print(data, end='', flush=True)
             print()
 
     def send_data(self, data):
-        """Send data to a renote endpoint"""
-        while True:
-            (to_client, (remote_cid, remote_port)) = self.sock.accept()
-            to_client.sendall(data)
-            to_client.close()
-            break
+        """Send data to a remote endpoint"""
+        (to_client, (remote_cid, remote_port)) = self.sock.accept()
+        to_client.sendall(data)
+        to_client.close()
+            
 
 
 def server_handler(args):
