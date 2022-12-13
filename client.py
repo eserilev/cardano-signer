@@ -26,6 +26,7 @@ class VsockStream:
                 continue
             print()
             print(f'signed_tx: {data}')
+            break
         print()
 
     def disconnect(self):
