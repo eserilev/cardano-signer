@@ -30,7 +30,8 @@ class VsockListener:
                     data = from_client.recv(1024).decode()
                     signed_tx = self.cardano_obj.sign_transaction(tx_body_cbor=data)
                     if signed_tx:
-                        print(f'signed tx: ${signed_tx.to_cbor()}')
+                        pass
+                        # print(f'signed tx: ${signed_tx.to_cbor()}')
                         # self.send_data(data=signed_tx.to_cbor().encode())
                 except socket.error:
                     break
