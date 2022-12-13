@@ -17,15 +17,16 @@ class VsockListener:
             (from_client, (remote_cid, remote_port)) = self.sock.accept()
             # Read 1024 bytes at a time
             while True:
-                try:
-                    data = from_client.recv(1024).decode()
-                    if data:
-                        print(data)
-                except socket.error:
-                    print('yo')
-                    continue
-                if not data:
-                    continue
+                pass
+                # try:
+                #     data = from_client.recv(1024).decode()
+                #     if data:
+                #         print(data)
+                # except socket.error:
+                #     print('yo')
+                #     continue
+                # if not data:
+                #     continue
                
             print()
             # self.send_data(data='test'.encode())
