@@ -30,6 +30,7 @@ class VsockListener:
                     data = from_client.recv(1024).decode()
                     if data:
                         try:
+                            print('signing transaction')
                             signed_tx = self.cardano_obj.sign_transaction(tx_body_cbor=data)
                         except:
                             print('failed signature')
