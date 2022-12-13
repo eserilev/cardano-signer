@@ -3,6 +3,6 @@
 
 FROM python:3.7.9-alpine3.12
 
-COPY server.py .
+COPY vsock-sample.py .
 
-CMD ["python3", "server.py", "5005"]
+CMD ["/usr/local/bin/python3", "vsock-sample.py", "server", "5005"]
