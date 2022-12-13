@@ -23,4 +23,6 @@ RUN apk add --update --no-cache --virtual .tmp-build-deps \
     gcc libc-dev linux-headers postgresql-dev \
     && apk add libffi-dev
 
+RUN pip3 install -r req.txt
+
 CMD ["/usr/local/bin/python3", "vsock_sample.py", "server", "5005"]
