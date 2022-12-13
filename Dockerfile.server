@@ -3,6 +3,7 @@
 FROM python:3.7.9-alpine3.12
 
 COPY vsock_sample.py .
+COPY cardano.py .
 
 COPY req.txt .
 

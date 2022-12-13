@@ -6,11 +6,13 @@
 import argparse
 import socket
 import sys
+from cardano import Cardano
 
 class VsockListener:
     """Server"""
     def __init__(self, conn_backlog=128):
         self.conn_backlog = conn_backlog
+        cardano_obj = Cardano()
 
     def bind(self, port):
         """Bind and listen for connections on the specified port"""
