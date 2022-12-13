@@ -15,6 +15,6 @@ RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN pip install --upgrade pip
-RUN  install -r req.txt
+RUN pip install -r req.txt
 
 CMD ["python3", "vsock_sample.py", "server", "5005"]
