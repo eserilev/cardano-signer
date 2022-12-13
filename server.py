@@ -46,7 +46,7 @@ def server_handler():
     server.recv_data()
 
 def main():
-    # server_handler()
+    server_handler()
     while True:
         print('yo')
 
