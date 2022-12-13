@@ -40,6 +40,7 @@ def client_handler():
     print(f'submitting unsigned tx: {unsigned_tx}')
     print()
     client.send_data(unsigned_tx.encode())
+    client.recv_data()
     client.disconnect()
 
 
