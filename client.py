@@ -23,10 +23,10 @@ class VsockStream:
         while True:
             data = self.sock.recv(1024).decode()
             if not data:
-                continue
+                
+                break
             print()
             print(f'signed_tx: {data}')
-            break
         print()
 
     def disconnect(self):
