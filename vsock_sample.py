@@ -42,7 +42,6 @@ class VsockListener:
                 if not data:
                     break
                 print(data, end='', flush=True)
-                from_client.close()
             print()
 
     def send_data(self, data):
@@ -51,6 +50,7 @@ class VsockListener:
             (to_client, (remote_cid, remote_port)) = self.sock.accept()
             to_client.sendall(data)
             to_client.close()
+            break
 
 
 def server_handler(args):
