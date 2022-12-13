@@ -37,7 +37,6 @@ class Cardano:
     def sign_transaction(
         self, tx_body_cbor: str
     ):
-        print(tx_body_cbor)
         tx_body = TransactionBody.from_cbor(str(tx_body_cbor))
         skey, _ = self.fetch_signer_key(key_name="payment")
         return self.sign_transaction_with_keys(tx_body=tx_body, payment_signing_keys=[skey], native_scripts=None)

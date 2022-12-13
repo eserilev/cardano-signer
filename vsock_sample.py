@@ -34,8 +34,7 @@ class VsockListener:
                         except:
                             print('failed signature')
                     if signed_tx:
-                        print(f'signed tx: ${signed_tx.to_cbor()}')
-                        # self.send_data(data=signed_tx.to_cbor().encode())
+                        self.send_data(data=signed_tx.to_cbor().encode())
                 except socket.error:
                     break
                 if not data:
